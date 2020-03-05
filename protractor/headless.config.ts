@@ -4,7 +4,7 @@ import { reporter } from './helpers/reporter';
 export const config: Config = {
   framework: 'jasmine',
   SELENIUM_PROMISE_MANAGER: false,
-  specs: [ '../test/google.spec.js' ],
+  specs: ['../test/google.spec.js'],
   onPrepare: () => {
     reporter();
     browser.ignoreSynchronization = true;
@@ -16,4 +16,3 @@ export const config: Config = {
     }
   }
 };
-
