@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "This is a Workshop about Protractor",
   "main": "index.js",
-  
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && tsc",
@@ -26,6 +25,7 @@
   },
   "homepage": "https://github.com/OAlvarez729467/protractor-workshop-2020#readme",
   "dependencies": {
+    "jasmine-spec-reporter": "^4.2.1",
     "protractor": "^5.4.3"
   },
   "devDependencies": {
