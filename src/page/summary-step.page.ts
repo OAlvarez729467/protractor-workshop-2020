@@ -1,4 +1,4 @@
-import { $, ElementFinder } from 'protractor';
+import { $, ElementFinder, protractor, browser } from 'protractor';
 
 export class SummaryPage {
   private confirmButton: ElementFinder;
@@ -8,6 +8,8 @@ export class SummaryPage {
   }
 
   public async confirmOrder(): Promise<void> {
+    const ec = protractor.ExpectedConditions;
+    await browser.wait(ec.elementToBeClickable(this.confirmButton), 1500);
     await this.confirmButton.click();
   }
 }
