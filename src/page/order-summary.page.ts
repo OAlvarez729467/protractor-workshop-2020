@@ -1,4 +1,4 @@
-import { $, ElementFinder } from 'protractor';
+import { $, ElementFinder, protractor, browser } from 'protractor';
 
 export class OrderSummaryPage {
   private proceedButton: ElementFinder;
@@ -8,6 +8,8 @@ export class OrderSummaryPage {
   }
 
   public async proceedCheckout(): Promise<void> {
+    const ec = protractor.ExpectedConditions;
+    await browser.wait(ec.elementToBeClickable(this.proceedButton), 1500);
     await this.proceedButton.click();
   }
 }
