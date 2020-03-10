@@ -1,15 +1,15 @@
-import { $, ElementFinder, protractor, browser } from 'protractor';
+import { browser, protractor, ElementArrayFinder, $$ } from 'protractor';
 
 export class ProductAddedPage {
-  private checkoutButton: ElementFinder;
+  private checkoutButton: ElementArrayFinder;
 
   constructor () {
-    this.checkoutButton = $('[style*="display: block;"] .button-container > a');
+    this.checkoutButton = $$('[title*="Proceed"]');
   }
 
   public async checkoutProduct(): Promise<void> {
     const ec = protractor.ExpectedConditions;
-    await browser.wait(ec.elementToBeClickable(this.checkoutButton), 1500);
-    await this.checkoutButton.click();
+    await browser.wait(ec.elementToBeClickable(this.checkoutButton.last()), 2000);
+    await this.checkoutButton.last().click();
   }
 }

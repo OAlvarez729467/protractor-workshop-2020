@@ -1,15 +1,15 @@
-import { $, ElementFinder, protractor, browser } from 'protractor';
+import { browser, protractor, ElementArrayFinder, $$ } from 'protractor';
 
 export class OrderSummaryPage {
-  private proceedButton: ElementFinder;
+  private proceedButton: ElementArrayFinder;
 
   constructor () {
-    this.proceedButton = $('.cart_navigation span');
+    this.proceedButton = $$('a[title*="Proceed"]');
   }
 
   public async proceedCheckout(): Promise<void> {
     const ec = protractor.ExpectedConditions;
-    await browser.wait(ec.elementToBeClickable(this.proceedButton), 1500);
-    await this.proceedButton.click();
+    await browser.wait(ec.elementToBeClickable(this.proceedButton.last()), 1500);
+    await this.proceedButton.last().click();
   }
 }
